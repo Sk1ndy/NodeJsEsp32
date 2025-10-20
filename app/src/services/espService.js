@@ -1,4 +1,4 @@
-import { getDB } from "./db.js";
+import { getDB } from "../db/db.js";
 
 const COLLECTION = process.env.COLLECTION_ESP || "espInfo";
 
@@ -33,9 +33,10 @@ export async function saveEspInfo(data) {
 
 export async function getLastEsp(limit = 20) {
   const db = getDB();
-  return db.collection(COLLECTION)
-           .find()
-           .sort({ ts_insert: -1 })
-           .limit(limit)
-           .toArray();
+  return db
+    .collection(COLLECTION)
+    .find()
+    .sort({ ts_insert: -1 })
+    .limit(limit)
+    .toArray();
 }

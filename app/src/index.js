@@ -3,7 +3,7 @@ import express from "express";
 import pino from "pino";
 import { connectDB } from "./db.js";
 import { startMqtt } from "./mqtt.js";
-import routes from "./routes.js";
+import routes from "./routes/routes.js";
 
 const log = pino({ level: process.env.LOG_LEVEL || "info" });
 

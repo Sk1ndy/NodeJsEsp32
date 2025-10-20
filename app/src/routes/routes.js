@@ -1,7 +1,7 @@
 import express from "express";
-import { getLastGps } from "./gpsService.js";
-import { getLastEsp } from "./espService.js";
-import { getLastGateway } from "./gatewayService.js";
+import { getLastGps } from "../gpsService.js";
+import { getLastEsp } from "../espService.js";
+import { getLastGateway } from "../gatewayService.js";
 
 const router = express.Router();
 

@@ -33,10 +33,31 @@ services:
       - mongo
     networks:
       - iotnet
-
+  grafana:
+    image: grafana/grafana-enterprise:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000" 
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - iotnet
+    user: "472" 
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered
+    restart: unless-stopped
+    ports:
+      - "1880:1880" 
+    volumes:
+      - nodered_data:/data 
+    networks:
+      - iotnet
 volumes:
   mongo_data:
-
+  grafana_data:
+  nodered_data:
 networks:
   iotnet:
     driver: bridge
